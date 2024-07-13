@@ -1,0 +1,114 @@
+﻿  GLMetaseq.c
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1157,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1157,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1157,25): error C2146: 構文エラー: ',' が、識別子 'glAccum' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1157,33): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1157,58): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1158,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1158,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1158,25): error C2146: 構文エラー: ',' が、識別子 'glAlphaFunc' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1158,37): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1158,63): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1159,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1159,21): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1159,30): error C2146: 構文エラー: ',' が、識別子 'glAreTexturesResident' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1159,52): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1159,109): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1160,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1160,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1160,25): error C2146: 構文エラー: ',' が、識別子 'glArrayElement' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1160,40): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1160,48): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1161,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1161,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1161,25): error C2146: 構文エラー: ',' が、識別子 'glBegin' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1161,33): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1161,45): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1162,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1162,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1162,25): error C2146: 構文エラー: ',' が、識別子 'glBindTexture' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1162,39): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1162,69): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1163,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1163,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1163,25): error C2146: 構文エラー: ',' が、識別子 'glBitmap' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1163,34): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1163,147): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1164,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1164,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1164,25): error C2146: 構文エラー: ',' が、識別子 'glBlendFunc' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1164,37): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1164,68): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1165,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1165,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1165,25): error C2146: 構文エラー: ',' が、識別子 'glCallList' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1165,36): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1165,48): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1166,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1166,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1166,25): error C2146: 構文エラー: ',' が、識別子 'glCallLists' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1166,37): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1166,81): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1167,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1167,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1167,25): error C2146: 構文エラー: ',' が、識別子 'glClear' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1167,33): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1167,49): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1168,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1168,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1168,25): error C2146: 構文エラー: ',' が、識別子 'glClearAccum' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1168,38): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1168,94): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1169,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1169,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1169,25): error C2146: 構文エラー: ',' が、識別子 'glClearColor' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1169,38): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1169,98): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1170,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1170,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1170,25): error C2146: 構文エラー: ',' が、識別子 'glClearDepth' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1170,38): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1170,53): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1171,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1171,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1171,25): error C2146: 構文エラー: ',' が、識別子 'glClearIndex' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1171,38): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1171,48): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1172,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1172,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1172,25): error C2146: 構文エラー: ',' が、識別子 'glClearStencil' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1172,40): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1172,48): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1173,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1173,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1173,25): error C2146: 構文エラー: ',' が、識別子 'glClipPlane' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1173,37): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1173,76): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1174,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1174,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1174,25): error C2146: 構文エラー: ',' が、識別子 'glColor3b' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1174,35): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1174,73): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1175,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1175,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1175,25): error C2146: 構文エラー: ',' が、識別子 'glColor3bv' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1175,36): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1175,52): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1176,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1176,16): error C2085: 'APIENTRY': 仮パラメーター リスト内にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1176,25): error C2146: 構文エラー: ',' が、識別子 'glColor3d' の前に必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1176,35): error C2143: 構文エラー: ';' が '(' の前にありません。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1176,79): error C2059: 構文エラー: ')'
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1177,1): error C2054: 'WINGDIAPI' の後に '(' が必要です。
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\GL\gl.h(1177,1): error C1003: プログラム内のエラーが 100 個を超えました。コンパイルは中断されます。
+  sample_GL.c
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(42,31): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(42,36): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(42,41): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(44,31): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(44,36): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(44,41): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(44,46): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(71,14): warning C4244: '関数': 'int' から 'GLfloat' への変換です。データが失われる可能性があります。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(72,14): warning C4244: '関数': 'int' から 'GLfloat' への変換です。データが失われる可能性があります。
+  コードを生成中...

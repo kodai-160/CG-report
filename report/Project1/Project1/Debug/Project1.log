@@ -1,0 +1,12 @@
+﻿  sample_GL.c
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(26,27): warning C4305: '初期化中': 'double' から 'float' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(43,33): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(43,38): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(43,43): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(45,33): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(45,38): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(45,43): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(45,48): warning C4305: '初期化中': 'double' から 'GLfloat' へ切り詰めます。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(69,15): warning C4244: '関数': 'int' から 'GLfloat' への変換です。データが失われる可能性があります。
+D:\KIT\3year1st\computer graphics\report\sample_GL\sample_GL.c(70,15): warning C4244: '関数': 'int' から 'GLfloat' への変換です。データが失われる可能性があります。
+  Project1.vcxproj -> D:\KIT\3year1st\computer graphics\report\Project1\Debug\Project1.exe
