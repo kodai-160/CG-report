@@ -16,6 +16,7 @@
 #endif
 
 #include "GLMetaseq.h"
+#include <time.h>
 
 // テクスチャの定義
 #define imageWidth 256
@@ -39,14 +40,28 @@ float g_fovy = 50.0;    // 視野角
 float g_posX = 0.0;     // X座標の位置
 float g_posY = -100.0;     // Y座標の位置
 float g_posZ = 0;
-GLfloat light_position[] = { 0.0, 0.0, 0.0, 1.0 };  // 光源の位置
+float g_camera2_rotation = 0.0; // camera2 の回転角度
+
+// パトランプの移動に関するグローバル変数
+float redLightColor[] = { 1.0, 0.0, 0.0, 1.0 };         // 全強度の赤色光、他の色はなし
+float redLightPosition[] = { 40.0, 0.0, -400.0, 1.0 };  // 初期位置、これは再計算されます
+float g_patrol_light_posX = 40.0;                       // 初期位置
+float g_patrol_light_posZ = -400.0;                     // 固定のZ座標
+float g_patrol_light_move_speed = 0.5;                  // 移動速度
+int g_patrol_light_moving = 0;                          // 移動中フラグ（0: 停止, 1: 移動中）
+float g_patrol_light_direction = 1.0;                   // 移動方向（1: 右へ, -1: 左へ）
+float g_patrol_light_range = 200.0;                     // 移動範囲（初期位置からの最大距離）
+
+int g_camera2_rotation_target = 0; // 目標角度
+int g_camera2_rotation_direction = 0; // 方向フラグ
+int g_patrol_light_start_after_menu1 = 0; // メニュー1の動作が終わった後にパトランプを動かすフラグ
+
+
 
 // MQOモデル
-MQO_MODEL g_camera, g_head, g_right_hand, g_left_hand, g_right_leg, g_left_leg;
+MQO_MODEL g_camera, g_camera2, g_head, g_right_hand, g_left_hand, g_right_leg, g_left_leg, g_patrol_light, g_light;
 
 // プロトタイプ宣言
-void mySetLight(void);
-void updateLightPosition(void);
 void Draw(void);
 void myReshape(int w, int h);
 void Keyboard(unsigned char key, int x, int y);
@@ -54,45 +69,7 @@ void SpecialKeys(int key, int x, int y);
 void Mouse(int button, int state, int x, int y);
 void Motion(int x, int y);
 void Quit(void);
-
-void updateLightPosition(void) {
-    glPushMatrix();
-    glLoadIdentity();
-    glTranslatef(g_posX, g_posY, -400.0 + g_posZ);
-    glRotatef(g_rotX, 1, 0, 0);
-    glRotatef(g_rotY, 0, 1, 0);
-    glGetFloatv(GL_MODELVIEW_MATRIX, light_position);
-    light_position[2] = 1.0;  // Z位置を固定
-    light_position[3] = 1.0;  // 方向光源ではなく位置光源として
-    glPopMatrix();
-}
-
-void mySetLight(void)
-{
-    GLfloat light_diffuse[] = { 0.9, 0.9, 0.9, 1.0 };
-    GLfloat light_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat light_ambient[] = { 0.3, 0.3, 0.3, 0.1 };
-
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-    glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-
-    glShadeModel(GL_SMOOTH);
-    glEnable(GL_LIGHT0);
-}
-
-void setModelMaterial(MQO_MODEL model) {
-    GLfloat mat_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
-    GLfloat mat_diffuse[] = { 0.8, 0.8, 0.8, 1.0 };
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat mat_shininess[] = { 50.0 };
-
-    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-}
+void Menu(int value);
 
 // PPM画像の読み込み
 void readPPMImage(char* filename, unsigned char image[imageHeight][imageWidth][3])
@@ -114,17 +91,17 @@ void readPPMImage(char* filename, unsigned char image[imageHeight][imageWidth][3
 // テクスチャの設定
 void setUpTexture(void)
 {
-    readPPMImage("desert.ppm", tailTexImage);
+    readPPMImage("floor.ppm", tailTexImage);
     readPPMImage("screen.ppm", screenTexImage);
 
     // 床のテクスチャ設定
     glGenTextures(1, &tailTexName);
     glBindTexture(GL_TEXTURE_2D, tailTexName);
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // 変更: GL_CLAMP から GL_REPEAT へ
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // 変更: GL_NEAREST から GL_LINEAR へ
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, imageWidth, imageHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, tailTexImage);
 
     // スクリーンのテクスチャ設定
@@ -143,7 +120,7 @@ void drawRoom() {
 
     // 床
     glBindTexture(GL_TEXTURE_2D, tailTexName);
-    glColor3f(0.5, 0.5, 0.5);
+    glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_QUADS);
     glTexCoord2f(0.0, 0.0); glVertex3f(-roomSize, -5.0, -roomSize);
     glTexCoord2f(1.0, 0.0); glVertex3f(roomSize, -5.0, -roomSize);
@@ -166,29 +143,71 @@ void drawRoom() {
 
 }
 
+void DrawPatrolLight() {
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    glLoadIdentity();
+
+    glTranslatef(g_patrol_light_posX, 0.0, g_patrol_light_posZ);
+    glScalef(0.3f, 0.3f, 0.3f);
+    mqoCallModel(g_patrol_light);
+
+    redLightPosition[0] = g_patrol_light_posX;
+    redLightPosition[1] = 1000.0;
+    redLightPosition[2] = g_patrol_light_posZ;
+    glLightfv(GL_LIGHT1, GL_POSITION, redLightPosition);
+
+    glPopMatrix();
+}
+
+
+
 void Draw(void)
 {
+    float light_position[] = { 100.0, 500.0, 200.0, 1.0 };      // 光源の位置
+    float white[] = { 1.0, 1.0, 1.0, 1.0 };                 // 光の色(RGB)
+    GLfloat ambient[] = { 1.0, 1.0, 1.0, 1.0 };             // 環境光の色
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, white);                //拡散光
+    glLightfv(GL_LIGHT0, GL_SPECULAR, white);               //鏡面光
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient);        //環境光モデル
+    glEnable(GL_LIGHT0);                                    // 光源を有効にする
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glClearColor(0.f, 0.f, 0.2f, 1.0);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
+    // ルームを描画する部分でライティングを無効に
     glDisable(GL_LIGHTING);
     glDisable(GL_DEPTH_TEST);
-
     drawRoom();
+
+    // オブジェクト描画前にライティングを有効化
+    
+    glEnable(GL_LIGHTING);
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_LIGHTING);  
 
     glTranslatef(g_posX, g_posY, -400.0 + g_posZ);
     glRotatef(g_rotX, 1, 0, 0);
     glRotatef(g_rotY, 0, 1, 0);
-
-    updateLightPosition();
-    mySetLight();
-
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_LIGHTING);
+
+    // ライティングの影響を受けるための設定
+    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, white);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, white);
+    glMaterialf(GL_FRONT, GL_SHININESS, 100.0f);
 
     mqoCallModel(g_camera);
+
+    glPushMatrix();
+    glTranslatef(43.08, 202.4, 37.86);
+    glRotatef(g_camera2_rotation, 0, 1, 0);
+    glTranslatef(-43.08, -202.4, -37.86);
+    mqoCallModel(g_camera2);
+    glPopMatrix();
+
     mqoCallModel(g_head);
 
     if (walking) {
@@ -234,6 +253,31 @@ void Draw(void)
     mqoCallModel(g_right_leg);
     glPopMatrix();
 
+    // パトランプの位置更新
+    if (g_patrol_light_moving) {
+        g_patrol_light_posX += g_patrol_light_move_speed * g_patrol_light_direction;
+        if (g_patrol_light_posX > g_patrol_light_range || g_patrol_light_posX < -g_patrol_light_range) {
+            g_patrol_light_direction *= -1;
+        }
+    }
+    glEnable(GL_LIGHTING);
+    DrawPatrolLight();
+
+    // メニューでcamera2.mqoを動かす
+    if (g_camera2_rotation_direction != 0) {
+        g_camera2_rotation += 0.05 * g_camera2_rotation_direction;
+        if ((g_camera2_rotation_direction == 1 && g_camera2_rotation >= g_camera2_rotation_target) ||
+            (g_camera2_rotation_direction == -1 && g_camera2_rotation <= g_camera2_rotation_target)) {
+            g_camera2_rotation = g_camera2_rotation_target;
+            g_camera2_rotation_direction = 0;
+
+            // メニュー1の動作が完了したらパトランプを動かす
+            if (g_patrol_light_start_after_menu1) {
+                g_patrol_light_moving = 1;
+                g_patrol_light_start_after_menu1 = 0;
+            }
+        }
+    }
     glutSwapBuffers();
 }
 
@@ -256,11 +300,24 @@ void Keyboard(unsigned char key, int x, int y)
         walking = !walking;
         if (walking) step_angle = 0;
         break;
-    case '+':
-        g_fovy = max(10.0, g_fovy - 5.0);
+    case 'r':
+        if (g_camera2_rotation > -90.0) {
+            g_camera2_rotation -= 10.0;
+            if (g_camera2_rotation < -90.0) {
+                g_camera2_rotation = -90.0;
+            }
+        }
         break;
-    case '-':
-        g_fovy = min(100.0, g_fovy + 5.0);
+    case 'R':
+        if (g_camera2_rotation < 0.0) {
+            g_camera2_rotation += 10.0;
+            if (g_camera2_rotation > 0.0) {
+                g_camera2_rotation = 0.0;
+            }
+        }
+        break;
+    case 'p':
+        g_patrol_light_moving = !g_patrol_light_moving;
         break;
     case 'q':
     case 'Q':
@@ -276,13 +333,13 @@ void SpecialKeys(int key, int x, int y)
 {
     switch (key) {
     case GLUT_KEY_UP:
-        if (g_posZ + 50.0 <= -100) {  // 上方向に移動するときの上限をチェック
+        if (g_posZ + 50.0 <= -100) {
             g_posZ += 10.0;
             printf("Moving forward, g_posZ: %f\n", g_posZ);
         }
         break;
     case GLUT_KEY_DOWN:
-        if (g_posZ - 50.0 >= -1000) {  // 下方向に移動するときの下限をチェック
+        if (g_posZ - 50.0 >= -1000) {
             g_posZ -= 10.0;
             printf("Moving backward, g_posZ: %f\n", g_posZ);
         }
@@ -307,17 +364,16 @@ void Mouse(int button, int state, int x, int y)
 
 void Motion(int x, int y)
 {
-    int xd, yd;
+    int xd;
 
     xd = x - g_mouseX;
-    yd = y - g_mouseY;
 
-    g_rotX += yd;
     g_rotY += xd;
 
     g_mouseX = x;
     g_mouseY = y;
 }
+
 
 void Quit(void)
 {
@@ -330,8 +386,30 @@ void Quit(void)
     mqoCleanup();
 }
 
+void Menu(int value)
+{
+    switch (value)
+    {
+    case 1:
+        g_camera2_rotation_target = -90;
+        g_camera2_rotation_direction = -1;
+        g_patrol_light_start_after_menu1 = 1;
+        break;
+    case 2:
+        g_camera2_rotation_target = 0;
+        g_camera2_rotation_direction = 1;
+        g_patrol_light_moving = 0;
+        break;
+    case 3:
+        exit(0);
+        break;
+    }
+    glutPostRedisplay();
+}
+
 int main(int argc, char* argv[])
 {
+    srand(time(NULL));
     glutInit(&argc, argv);
     glutInitWindowPosition(100, 50);
     glutInitWindowSize(640, 480);
@@ -340,13 +418,20 @@ int main(int argc, char* argv[])
 
     mqoInit();
     g_camera = mqoCreateModel("camera1.mqo", 1.0);
+    g_camera2 = mqoCreateModel("camera2.mqo", 1.0);
     g_head = mqoCreateModel("head.mqo", 1.0);
     g_right_hand = mqoCreateModel("righthand.mqo", 1.0);
     g_left_hand = mqoCreateModel("lefthand.mqo", 1.0);
     g_right_leg = mqoCreateModel("rightleg.mqo", 1.0);
     g_left_leg = mqoCreateModel("leftleg.mqo", 1.0);
+    g_patrol_light = mqoCreateModel("patrol_light.mqo", 1.0);
+    g_light = mqoCreateModel("g_light.mqo", 1.0);
 
     atexit(Quit);
+
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT1);
 
     glutDisplayFunc(Draw);
     glutIdleFunc(Draw);
@@ -356,6 +441,17 @@ int main(int argc, char* argv[])
     glutSpecialFunc(SpecialKeys);
     glutMouseFunc(Mouse);
     glutMotionFunc(Motion);
+
+    // メニュー
+    int submenu = glutCreateMenu(Menu);
+    glutAddMenuEntry("Start videotaping", 1);
+    glutAddMenuEntry("Finish videotaping", 2);
+
+    glutCreateMenu(Menu);
+    glutAddSubMenu("videocamera", submenu);
+    glutAddMenuEntry("Finish program", 3);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
+
     glutMainLoop();
 
     return 0;
